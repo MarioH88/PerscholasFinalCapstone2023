@@ -1,0 +1,61 @@
+
+<div class="d-flex flex-column" th:fragment="event" th:if="${ not#lists.isEmpty(events)}">
+    <div class="p-3" sec:authorize="hasRole('ROLE_ORGANISER')">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#CreateEventModalForm" >
+            Create Event
+        </button>
+    </div>
+    <table id="events" class="table display" style="width:100%">
+        <thead>
+        <tr>
+            <th>Event Id</th>
+            <th>Event Name</th>
+            <th>Event Type</th>
+            <th>Event Date</th>
+            <th>Organiser Email</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="event : ${events}" >
+            <td th:text="${event.eventId}"></td>
+            <td th:text="${event.eventName}"></td>
+            <td th:text="${event.eventType}"></td>
+            <td th:text="${event.eventDate}"></td>
+            <td th:text="${event.organiser.email}"></td>
+
+            <td class="edit" >
+                <div class="d-flex flex-row flex-wrap justify-content-around align-content-center" >
+                    <div sec:authorize="hasRole('ROLE_ALUMNI')" th:if="${ page != null && page =='upcoming'}">
+                        <form method="get" th:action="@{{alumniId}/join/{eventId}(alumniId=${alumniId},eventId=${event.eventId})}">
+                            <button type="submit" class="btn ">REGISTER</button>
+                        </form>
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_ORGANISER')">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ViewRegisteredAlumniModalForm" th:data-bs-event="${event.eventId}">
+                            <img src="../static/images/view.png" alt="edit" th:src="@{images/view.png}" width="20" height="20">
+                        </button>
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_ORGANISER')">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#UpdateEventModalForm" th:data-bs-whatever="${event.eventId}">
+                            <img src="../static/images/edit.png" alt="edit" th:src="@{images/edit.png}" width="20" height="20">
+                        </button>
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_ORGANISER')">
+                        <form method="get" th:action="@{/events/delete/{id}(id=${event.eventId})}">
+                            <button type="submit" class="btn ">
+                                <img src="../static/images/delete.png" alt="delete" th:src="@{images/delete.png}" width="20" height="20">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <th:block th:replace="/fragments/modals :: modal('UpdateEventModalForm','Update Events')">modal</th:block>
+        <th:block th:replace="/fragments/modals :: modal('CreateEventModalForm','Create Event')">modal</th:block>
+        <th:block th:replace="/fragments/modals :: modal('ViewRegisteredAlumniModalForm','Registered Alumni')">modal</th:block>
+    </table>
+
+</div>
+

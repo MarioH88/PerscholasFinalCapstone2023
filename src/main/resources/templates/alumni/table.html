@@ -1,0 +1,45 @@
+
+<div class="d-flex flex-column" th:fragment="alumni" th:if="${ not#lists.isEmpty(alumni)}">
+
+    <table id="alumni" class="table display" style="width:100%">
+        <thead>
+        <tr>
+            <th>Alumni Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Number of Events Attended</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="alumnus : ${alumni}" >
+            <td th:text="${alumnus.alumniId}"></td>
+            <td th:text="${alumnus.firstName}"></td>
+            <td th:text="${alumnus.lastName}"></td>
+            <td th:text="${alumnus.email}"></td>
+            <td th:text="${alumnus.numberOfEventsAttended}"></td>
+
+            <td class="edit">
+                <div class="d-flex flex-row flex-wrap justify-content-around align-content-center">
+                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#UpdateAlumniModalForm" th:data-bs-whatever="${alumnus.alumniId}">
+                            <img src="../static/images/edit.png" alt="edit" th:src="@{images/edit.png}" width="20" height="20">
+                        </button>
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                        <form method="get" th:action="@{/alumni/delete/{alumniId}(alumniId=${alumnus.alumniId})}">
+                            <button type="submit" class="btn ">
+                                <img src="../static/images/delete.png" alt="delete" th:src="@{images/delete.png}" width="20" height="20">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <th:block th:replace="/fragments/modals :: modal('UpdateAlumniModalForm','Update Alumni')">modal</th:block>
+    </table>
+
+</div>
+

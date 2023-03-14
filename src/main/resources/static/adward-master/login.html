@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>About Us</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" th:href="@{/css/css-circular-prog-bar.css}">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- font wesome stylesheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+  <link href="css/responsive.css" th:href="@{/css/responsive.css}" rel="stylesheet" />
+  <link rel="stylesheet" th:href="@{/css/css-circular-prog-bar.css}">
+</head>
+<body>
+<div class="top_container sub_pages">
+  <header class="header_section">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.png" alt="">
+          <span>
+              Alumni Association
+            </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html"> Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="about.html"> About </a>
+              </li>
+
+              <li class="nav-item ">
+                <a class="nav-link" href="teacher.html"> Committee </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="vehicle.html"> Event </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+              <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+</div>
+
+
+
+<section class="about_section layout_padding">
+  <div class="container">
+    <h2 class="main-heading ">
+   Please click to login
+    </h2>
+    <p class="text-center">
+      Welcome to the Alumni Association website! We are a community of former students who have graduated from our high school and are now making a difference in the world.
+
+      As an alumni organization, we are committed to fostering a strong and supportive network among our members. Whether you are looking to reconnect with old classmates, expand your professional network, or give back to your alma mater, we are here to help.
+
+      Our website is designed to keep you informed about our latest events and activities, as well as provide you with resources and opportunities to connect with other alumni. From networking events and career development workshops to volunteer opportunities and social gatherings, there is always something happening within our community.
+
+      We also encourage you to stay connected with us through our social media channels and alumni newsletter, where you can learn about the latest news and updates from our organization and our members.
+
+      Thank you for visiting our website, and we hope you will consider becoming an active member of our Alumni Association. Together, we can make a difference in the world and continue to make our university proud.
+    </p>
+    <div class="about_img-box ">
+      <img th:src="@{/images/kids.jpg}" alt="" class="img-fluid w-100"/>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" th:href="@{/css/css-circular-prog-bar.css}" />
+<link th:href="@{https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap}" rel="stylesheet" />
+<!-- font wesome stylesheet -->
+<link rel="stylesheet" th:href="@{https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css}" />
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/responsive.css}" rel="stylesheet" />
+<link rel="stylesheet" th:href="@{/css/css-circular-prog-bar.css}" />
+
+  </script>
+
+</body>
+
+</html>

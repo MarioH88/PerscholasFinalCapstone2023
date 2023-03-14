@@ -1,0 +1,47 @@
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<div th:fragment="header" id="header">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" th:href="@{/}">
+                <img src="https://alumni.symlaw.ac.in/assets/plugins/socicon/svg/socicon_app.net.svg" alt="Logo"
+                     width="30" height="30"
+                     class="d-inline-block align-text-top"> AMS
+            </a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link active" aria-current="page" href="/users">Users</a>
+                </li>
+
+                <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_ORGANISER')">
+                    <a class="nav-link active" aria-current="page" href="/alumni">Alumni</a>
+                </li>
+
+                <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ORGANISER')">
+                    <a class="nav-link active" aria-current="page" href="/events">Events</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ALUMNI')">
+                    <a class="nav-link active" aria-current="page" href="/events/upcoming"> Upcoming Unregistered Events</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ALUMNI')">
+                    <a class="nav-link active" aria-current="page" href="/events/registered"> Registered Events</a>
+                </li>
+            </ul>
+            <a class="nav-link" th:href="@{/logout}"><button class="d-flex btn btn-outline-danger" type="submit">LogOut</button></a>
+        </div>
+    </div>
+</nav>
+</div>
+</html>

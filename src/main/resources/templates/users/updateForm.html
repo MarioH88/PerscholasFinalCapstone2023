@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>User Update</title>
+</head>
+<body>
+<h1>User Update</h1>
+<form action="#" th:action="@{/users/update}" method="post" th:object="${user}">
+    <div class="row mb-3 disabled">
+        <label for="userId" class="col-sm-2 col-form-label" >Email</label>
+        <div class="col-sm-10">
+            <input type="text"  readonly class="form-control" id="userId" th:field="*{userId} " >
+        </div>
+    </div>
+    <div class="row mb-3 disabled" >
+        <label for="userEmail" class="col-sm-2 col-form-label" >Email</label>
+        <div class="col-sm-10">
+            <input type="email" readonly class="form-control" id="userEmail" th:field="*{email}" >
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="is-admin" th:field="*{admin}">
+                <label class="form-check-label" for="is-admin">
+                    ADMIN
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="is-organiser" th:field="*{organiser}">
+                <label class="form-check-label" for="is-organiser">
+                    ORGANISER
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-10 offset-sm-2">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="is-alumni" th:field="*{alumni}">
+                <label class="form-check-label" for="is-alumni">
+                    ALUMNI
+                </label>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+</body>
+</html>

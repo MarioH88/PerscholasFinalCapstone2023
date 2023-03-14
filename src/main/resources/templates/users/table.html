@@ -1,0 +1,58 @@
+
+<div class="d-flex flex-column" th:fragment="users" th:if="${ not#lists.isEmpty(users)}">
+    <div class="p-3">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#CreateUserModalForm" >
+            Create User
+        </button>
+    </div>
+
+    <table id="users" class="table display" style="width:100%">
+        <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>Organiser</th>
+            <th>Alumni</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}" >
+            <td th:text="${user.userId}"></td>
+            <td th:text="${user.email}"></td>
+            <td>
+                <input type="checkbox" name="is-admin" th:checked="${user.admin} ? 'checked'">
+            </td>
+
+            <td>
+                <input type="checkbox" name="is-organiser" th:checked="${user.organiser} ? 'checked'">
+            </td>
+
+            <td>
+                <input type="checkbox" name="is-alumni" th:checked="${user.alumni} ? 'checked'">
+            </td>
+            <td class="edit">
+                <div class="d-flex flex-row flex-wrap justify-content-around align-content-center">
+                    <div>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#UpdateUserModalForm" th:data-bs-whatever="${user.userId}">
+                            <img src="../static/images/edit.png" alt="edit" th:src="@{images/edit.png}" width="20" height="20">
+                        </button>
+                    </div>
+                    <div>
+                        <form method="get" th:action="@{/users/delete/{userId}(userId=${user.userId})}">
+                            <button type="submit" class="btn ">
+                                <img src="../static/images/delete.png" alt="delete" th:src="@{images/delete.png}" width="20" height="20">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+        <th:block th:replace="/fragments/modals :: modal('UpdateUserModalForm','Update User')">modal</th:block>
+        <th:block th:replace="/fragments/modals :: modal('CreateUserModalForm','Create User')">modal</th:block>
+    </table>
+
+</div>
+

@@ -1,0 +1,11 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<div th:fragment="footer" class="d-flex flex-wrap justify-content-around align-content-center bg-body-tertiary" id="footer">
+    <!-- this is footer -->
+    <div class="p-2">&copy; 2023 Mario Hayden</div>
+    <div class="p-2"  sec:authorize="isAuthenticated()">Logged user: <span sec:authentication="name"></span></div>
+    <div class="p-2"  sec:authorize="isAuthenticated()">Roles: <span sec:authentication="principal.authorities"></span></div>
+    <div class="p-2"  sec:authorize="isAuthenticated()"><a class="nav-link" th:href="@{/logout}"><button class="d-flex btn btn-outline-danger" type="submit">LogOut</button></a></div>
+</div>
+</html>

@@ -1,0 +1,75 @@
+
+    <div th:fragment="modal(id, title)" class="modal fade" th:id="${id}" role="dialog" aria-labelledby="modalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog " th:classappend="${id == 'ViewRegisteredAlumniModalForm'} ? modal-fullscreen : modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel" th:text="${title}">Update</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Modal body
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<!--                    <button type="button" class="btn btn-primary">Apply changes</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:fragment="statusModal(id, title, message, type)" class="modal fade" th:id="${id}" role="dialog" aria-labelledby="errorModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div th:switch="${type}">
+                <div th:case="'error'">
+                    <div class="modal-content alert alert-block alert-danger">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="errorModalLabel" th:text="${title}">Modal</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" th:text="${message}">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <div th:case="'warn'">
+                    <div class="modal-content alert alert-block alert-warning">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="warnModalLabel" th:text="${title}">Modal</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" th:text="${message}">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <div th:case="'success'">
+                    <div class="modal-content alert alert-block alert-success">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successModalLabel" th:text="${title}">Modal</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" th:text="${message}">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

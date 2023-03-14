@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<form action="#" th:action="@{/events/update}" method="post" th:object="${event}">
+    <div class="row mb-3 disabled">
+        <label for="eventId" class="col-sm-2 col-form-label" >EventId</label>
+        <div class="col-sm-10">
+            <input type="text"  readonly class="form-control" id="eventId" th:field="*{eventId} " >
+        </div>
+    </div>
+    <div class="row mb-3 disabled" >
+        <label for="eventName" class="col-sm-2 col-form-label" >Event Name</label>
+        <div class="col-sm-10">
+            <input type="text"  class="form-control" id="eventName" th:field="*{eventName}" >
+        </div>
+    </div>
+    <div class="row mb-3 " >
+        <label for="eventType" class="col-sm-2 col-form-label" >Event Type</label>
+        <div class="col-sm-10">
+            <input type="text"  class="form-control" id="eventType" th:field="*{eventType}" >
+        </div>
+    </div>
+    <div class="row mb-3" >
+        <label for="eventDate" class="col-sm-2 col-form-label" >Event Date</label>
+        <div class="col-sm-10">
+            <input type="date"  class="form-control" id="eventDate"  th:field="*{eventDate}" th:value="*{eventDate}">
+        </div>
+    </div>
+    <div class="row mb-3 " >
+        <label for="organiser" class="col-sm-2 col-form-label" >Organiser Email</label>
+        <div class="col-sm-10">
+            <input type="text"  class="form-control" id="organiser" th:field="*{organiser.email}" >
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+</body>
+</html>

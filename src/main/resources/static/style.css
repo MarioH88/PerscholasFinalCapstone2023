@@ -1,0 +1,21 @@
+#footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* use viewport-relative units to cover page fully */
+body {
+  height: 100%;
+  width: 100%;
+}
+
+td .edit {
+  padding: 0px;
+  content: url("../static/images/edit.png");
+}
+
