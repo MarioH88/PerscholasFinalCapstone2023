@@ -19,12 +19,18 @@ public class SecurityConfiguration {
                 .csrf()
                 .disable()
                 .formLogin()
+                .loginPage("/login") // S
+                .loginProcessingUrl("/perform_login") // Specify the URL to process the login
+                .defaultSuccessUrl("/", true) // Set the default success URL after login
+                .failureUrl("/login?error=true") // Set the URL for login failures
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
                 .and()
                 .authorizeHttpRequests(
-                        (authz) -> authz.anyRequest().authenticated()
+                        (authz) -> authz
+                                .requestMatchers(req -> req.getServletPath().equals("/login")).permitAll()
+                                .anyRequest().authenticated()
                 );
         return http.build();
     }
