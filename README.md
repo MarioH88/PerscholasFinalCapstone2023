@@ -43,7 +43,7 @@ v. Run the application:
 
 mvn spring-boot:run
 
-vi. Open your web browser and navigate to http://localhost:8080. You should now see the Alumni Event Management System home page.
+vi. Open your web browser and navigate to http://localhost:8082. You should now see the Alumni Event Management System home page.
 
 License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
