@@ -29,9 +29,7 @@ MySQL or any other relational database
 6. Installation
 
 i. Clone the repository:
-
-
-i.git clone https://github.com/yourusername/alumni-event-management-system.git
+git clone https://github.com/yourusername/alumni-event-management-system.git
 
 ii. Navigate to the project directory:
 cd alumni-event-management-system
