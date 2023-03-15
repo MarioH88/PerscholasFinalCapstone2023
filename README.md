@@ -24,6 +24,8 @@ Java 11 or later
 Maven
 MySQL or any other relational database
 
+
+
 6. Installation
 i. Clone the repository:
 git clone https://github.com/yourusername/alumni-event-management-system.git
